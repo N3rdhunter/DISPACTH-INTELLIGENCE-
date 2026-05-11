@@ -1,0 +1,7 @@
+CREATE TABLE rides (
+  id UUID PRIMARY KEY,
+  passenger_name VARCHAR(255),
+  pickup_lat NUMERIC,
+  pickup_lng NUMERIC,
+  status VARCHAR(50)
+);
