@@ -1,0 +1,31 @@
+import { Injectable } from '@nestjs/common';
+import { DriverCandidate } from '../interfaces/driver.interface';
+
+@Injectable()
+export class DispatchService {
+
+  calculateScore(driver: DriverCandidate): number {
+
+    const distanceWeight = driver.distance * 0.35;
+
+    const etaWeight = driver.eta * 0.30;
+
+    const ratingWeight = (5 - driver.rating) * 0.05;
+
+    const idleWeight = driver.idleTime * -0.05;
+
+    return (
+      distanceWeight +
+      etaWeight +
+      ratingWeight +
+      idleWeight
+    );
+  }
+
+  selectBestDriver(drivers: DriverCandidate[]) {
+
+    return drivers.sort((a, b) => {
+      return this.calculateScore(a) - this.calculateScore(b);
+    })[0];
+  }
+}
