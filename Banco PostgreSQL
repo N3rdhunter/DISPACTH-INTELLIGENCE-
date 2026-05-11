@@ -1,0 +1,9 @@
+CREATE TABLE drivers (
+  id UUID PRIMARY KEY,
+  name VARCHAR(255),
+  lat NUMERIC,
+  lng NUMERIC,
+  available BOOLEAN,
+  rating NUMERIC,
+  idle_time INTEGER
+);
