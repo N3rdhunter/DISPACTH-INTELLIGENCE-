@@ -1,0 +1,3 @@
+driver:location:{driverId}
+driver:status:{driverId}
+ride:dispatch:{rideId}
